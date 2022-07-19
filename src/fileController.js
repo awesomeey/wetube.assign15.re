@@ -18,7 +18,7 @@ export const getFileList = (req, res) => {
 			return res.render("home", { pageTitle: "TXT2HTML!", fileList });
 		}catch(error){
 			console.log(error);
-			return res.state(400).render("404", { pageTitle: "Error: Data Load", errorMsg: "There was a problem loading the file list😅 Please try again in a few minutes" });
+			return res.status(400).render("404", { pageTitle: "Error: Data Load", errorMsg: "There was a problem loading the file list😅 Please try again in a few minutes" });
 		}
 	})
 };
@@ -62,12 +62,12 @@ export const getfile = (req, res) => {
 					return res.render("read", { pageTitle: name, data });
 				}catch(error){
 					console.log(error);
-					return res.state(400).render("404", { pageTitle: "Error: Data Load", errorMsg: "There was a problem loading the file Please try again in a few minutes" });
+					return res.status(400).render("404", { pageTitle: "Error: Data Load", errorMsg: "There was a problem loading the file Please try again in a few minutes" });
 				}
 			});
 		}catch(error){
 			console.log(error);
-			return res.state(400).render("404", { pageTitle: "Error: Data Load", errorMsg: "There was a problem loading the file list😅 Please try again in a few minutes" });
+			return res.status(400).render("404", { pageTitle: "Error: Data Load", errorMsg: "There was a problem loading the file list😅 Please try again in a few minutes" });
 		}
 	})
 	
