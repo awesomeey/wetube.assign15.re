@@ -1,0 +1,15 @@
+extends layout
+include mixin/list
+
+block content
+	h1 #{pageTitle}🤗
+	form(method="POST", enctype="multipart/form-data")
+		input(type="file", name="txt", accept="txt/*", required)
+		input(type="submit", value="Convert!")
+	hr
+	if fileList.length === 0
+		p 아직 업로드된 파일이 없어요!
+	else 
+		ul
+			each file in fileList
+				+list(file)

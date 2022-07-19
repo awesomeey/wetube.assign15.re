@@ -1,19 +1,19 @@
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
-import multer from "multer";
-import fs from "fs";
+import root from "./rootRouter";
 
 const app = express();
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const handleHome = (req, res) => {
-  return res.send("<h1>helloo! u entered awesomeey area🤗!</h1>");
-};
-
-app.get("/", handleHome);
+app.use("/uploads", express.static("uploads"));
+app.use("/", root);
 
 // Codesanbox does not need PORT :)
-app.listen(4000, () => console.log(`Listening!`));
+// app.listen(4000, () => console.log(`Listening!`));
+const PORT = 4000;
+
+const handleListening = () => console.log(`✔ Server listening on port http://localhost:${PORT}!`);
+app.listen(PORT, handleListening);

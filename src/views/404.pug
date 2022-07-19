@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	h1 #{pageTitle}
+	if errorMsg
+		p
+			mark=errorMsg
